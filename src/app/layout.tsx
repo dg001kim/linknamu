@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import ThemeToggle from "@/components/ThemeToggle";
+
+// 저장된 테마가 있으면 그 값을, 없으면 OS 설정을 따른다
+const themeInitScript = `(function () {
+  var theme = null;
+  try { theme = localStorage.getItem("theme"); } catch (e) {}
+  var dark = theme ? theme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  if (dark) document.documentElement.classList.add("dark");
+})();`;
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,10 +33,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
+      <head>
+        {/* 첫 화면이 그려지기 전에 테마를 적용해 깜빡임 방지 */}
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ThemeToggle />
         {children}
       </body>
     </html>
