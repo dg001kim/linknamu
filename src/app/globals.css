@@ -3,21 +3,34 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #3a2e28;
+  --muted: #8a776c;
+  /* 크림 → 연한 살구색. 위에 은은한 빛 번짐을 얹어 글래스 카드가 비쳐 보이게 한다 */
+  --background:
+    radial-gradient(60% 45% at 15% 0%, rgba(255, 255, 255, 0.7), transparent 70%),
+    radial-gradient(55% 45% at 90% 100%, rgba(255, 196, 168, 0.55), transparent 70%),
+    linear-gradient(165deg, #fff8ef 0%, #fdeedf 50%, #f9dcc8 100%);
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --foreground: #f3e8e1;
+  --muted: #b3a197;
+  --background:
+    radial-gradient(60% 45% at 15% 0%, rgba(255, 190, 150, 0.1), transparent 70%),
+    radial-gradient(55% 45% at 90% 100%, rgba(255, 150, 110, 0.12), transparent 70%),
+    linear-gradient(165deg, #1d1714 0%, #231a16 50%, #2a1d18 100%);
   color-scheme: dark;
 }
 
 body {
+  min-height: 100vh;
   color: var(--foreground);
   background: var(--background);
-  transition: background-color 0.2s, color 0.2s;
-  font-family: Arial, Helvetica, sans-serif;
+  background-attachment: fixed;
+  transition: color 0.2s;
+  font-family: var(--font-pretendard), -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
 }
 
 @layer utilities {

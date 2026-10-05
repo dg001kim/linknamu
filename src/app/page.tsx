@@ -16,9 +16,9 @@ const links = [
 
 export default function Home() {
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-md flex-col items-center px-6 py-16">
+    <main className="mx-auto flex min-h-screen w-full max-w-md flex-col items-center px-7 pb-20 pt-24 sm:px-8 sm:pt-28">
       <Profile {...profile} />
-      <nav className="mt-10 flex w-full flex-col gap-4">
+      <nav className="mt-12 flex w-full flex-col gap-4">
         {links.map((link) => (
           <LinkCard key={link.title} {...link} />
         ))}

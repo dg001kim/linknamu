@@ -14,12 +14,14 @@ export default function Profile({ name, bio, imageUrl }: ProfileProps) {
         alt={`${name} 프로필 사진`}
         width={150}
         height={150}
-        className="h-[150px] w-[150px] rounded-full border-2 border-gray-300 object-cover dark:border-gray-600"
+        className="h-[132px] w-[132px] rounded-full object-cover shadow-[0_14px_36px_-10px_rgba(160,100,70,0.45)] ring-4 ring-white/80 sm:h-[150px] sm:w-[150px] dark:shadow-[0_14px_36px_-10px_rgba(0,0,0,0.7)] dark:ring-white/10"
         unoptimized
         priority
       />
-      <h1 className="mt-5 text-xl font-bold">{name}</h1>
-      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{bio}</p>
+      <h1 className="mt-7 text-2xl font-semibold tracking-tight">{name}</h1>
+      <p className="mt-2 max-w-xs text-balance text-[15px] leading-relaxed text-[var(--muted)]">
+        {bio}
+      </p>
     </section>
   );
 }
