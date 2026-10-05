@@ -12,9 +12,10 @@ export default function Profile({ name, bio, imageUrl }: ProfileProps) {
       <Image
         src={imageUrl}
         alt={`${name} 프로필 사진`}
-        width={112}
-        height={112}
-        className="h-28 w-28 rounded-full border-2 border-gray-300 object-cover dark:border-gray-600"
+        width={150}
+        height={150}
+        className="h-[150px] w-[150px] rounded-full border-2 border-gray-300 object-cover dark:border-gray-600"
+        unoptimized
         priority
       />
       <h1 className="mt-5 text-xl font-bold">{name}</h1>
